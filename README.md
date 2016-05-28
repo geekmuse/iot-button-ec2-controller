@@ -44,3 +44,8 @@ Simply creating an `IoT Enabled` tag is enough to make the EC2 instance work wit
 A single button press will turn on tagged instances if they're not already running.  A double button press will turn off tagged instances if they're not already shutdown.
 
 ### Enjoy!
+
+
+## TODO
+
+There are still a few things I'd like to do, such as moving config to an external file and writing a few tests (though tests were run from within the Lambda interface), tightening up the permissions in the policy.json file, and figuring out what an appropriate long button push event might be and writing code to support that.
