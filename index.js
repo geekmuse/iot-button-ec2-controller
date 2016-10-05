@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 var _ = require('underscore');
-var ec2 = new AWS.EC2({ apiVersion: '2015-10-01' });
+var ec2 = new AWS.EC2({ apiVersion: '2016-09-15' });
 AWS.config.region = 'us-east-1';
 
 exports.handler = (event, context, callback) => {
