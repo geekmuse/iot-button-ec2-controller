@@ -25,6 +25,7 @@ Initial development of this project was funded by Brent Ozar of [Brent Ozar Unli
   - Immediately, after the function is created, you'll be taken to a confirmation page.  At the top right corner of this page, you'll see "ARN - {longstringofstuff}".  Copy the `longstringofstuff` part.
 - Update Gruntfile.js with the ARN.
   - With the ARN you just copied, replace `replace-this-string-with-a-real-value` with the value you just copied and save the file.
+  - If you're deploying your Lambda function to another region, you'll need to update the region along with the ARN mentioned just above.
 - Update index.js with the proper region.
   -  If your Lambda is not deployed in the `us-east-1` region, you'll need to update the value accordingly.  Save the file.
 
