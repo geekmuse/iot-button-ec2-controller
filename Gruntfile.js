@@ -7,7 +7,10 @@ grunt.initConfig({
     },
     lambda_deploy: {
         default: {
-            arn: 'replace-this-string-with-a-real-value'
+            arn: 'replace-this-string-with-a-real-value',
+            options: {
+                region: 'us-east-1'
+            }
         }
     },
     lambda_package: {
