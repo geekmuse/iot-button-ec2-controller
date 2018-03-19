@@ -9,10 +9,10 @@ Initial development of this project was funded by Brent Ozar of [Brent Ozar Unli
 
 ### Setup
 
--  Prerequisites
+- Prerequisites
   - An AWS Account
   - Working [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) installation
--  Create a new Lambda function in your AWS account.
+- Create a new Lambda function in your AWS account.
   -  In the web console, go into the Lambda area and use the "iot-button-email" blueprint to create the new function.
   -  Change the "IoT type" to "IoT Button"; you'll be asked to provide the serial # for the button.
   -  Once you've provided a valid serial #, press the "Generate Certificate and Keys" button.
@@ -22,10 +22,10 @@ Initial development of this project was funded by Brent Ozar of [Brent Ozar Unli
   -  Set execution time to 10 seconds.
   -  Click "Save" at the bottom of the screen.
   -  On the next screen, check the "Enable Event Source" box, then click the "Create Function" button at the bottom of the screen.
-  -  Immediately, after the function is created, you'll be taken to a confirmation page.  At the top right corner of this page, you'll see "ARN - {longstringofstuff}".  Copy the `longstringofstuff` part.
--  Update Gruntfile.js with the ARN.
-  -  With the ARN you just copied, replace `replace-this-string-with-a-real-value` with the value you just copied and save the file.
--  Update index.js with the proper region.
+  - Immediately, after the function is created, you'll be taken to a confirmation page.  At the top right corner of this page, you'll see "ARN - {longstringofstuff}".  Copy the `longstringofstuff` part.
+- Update Gruntfile.js with the ARN.
+  - With the ARN you just copied, replace `replace-this-string-with-a-real-value` with the value you just copied and save the file.
+- Update index.js with the proper region.
   -  If your Lambda is not deployed in the `us-east-1` region, you'll need to update the value accordingly.  Save the file.
 
 ### Deploy
