@@ -9,21 +9,24 @@ Initial development of this project was funded by Brent Ozar of [Brent Ozar Unli
 
 ### Setup
 
-1.  Create a new Lambda function in your AWS account.
-  1.  In the web console, go into the Lambda area and use the "iot-button-email" blueprint to create the new function.
-  2.  Change the "IoT type" to "IoT Button"; you'll be asked to provide the serial # for the button.
-  3.  Once you've provided a valid serial #, press the "Generate Certificate and Keys" button.
-  4.  Save the certificate and key file in a safe place, take a screenshot of the directions and click "Next".
-  5.  Provide a name for the Lambda function, and alter the description if desired.
-  6.  Create a new basic execution role (call it something appropriate, like "iot-button-ec2"), copy the contents of policy.json into the policy document area of the new role screen and save; the new role should populate in the role select list back in the Lambda screen.
-  7.  Set execution time to 10 seconds.
-  8.  Click "Save" at the bottom of the screen.
-  9.  On the next screen, check the "Enable Event Source" box, then click the "Create Function" button at the bottom of the screen.
-  10.  Immediately, after the function is created, you'll be taken to a confirmation page.  At the top right corner of this page, you'll see "ARN - {longstringofstuff}".  Copy the `longstringofstuff` part.
-2.  Update Gruntfile.js with the ARN.
-  1.  With the ARN you just copied, replace `replace-this-string-with-a-real-value` with the value you just copied and save the file.
-3.  Update index.js with the proper region.
-  1.  If your Lambda is not deployed in the `us-east-1` region, you'll need to update the value accordingly.  Save the file.
+-  Prerequisites
+  - An AWS Account
+  - Working [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) installation
+-  Create a new Lambda function in your AWS account.
+  -  In the web console, go into the Lambda area and use the "iot-button-email" blueprint to create the new function.
+  -  Change the "IoT type" to "IoT Button"; you'll be asked to provide the serial # for the button.
+  -  Once you've provided a valid serial #, press the "Generate Certificate and Keys" button.
+  -  Save the certificate and key file in a safe place, take a screenshot of the directions and click "Next".
+  -  Provide a name for the Lambda function, and alter the description if desired.
+  -  Create a new basic execution role (call it something appropriate, like "iot-button-ec2"), copy the contents of policy.json into the policy document area of the new role screen and save; the new role should populate in the role select list back in the Lambda screen.
+  -  Set execution time to 10 seconds.
+  -  Click "Save" at the bottom of the screen.
+  -  On the next screen, check the "Enable Event Source" box, then click the "Create Function" button at the bottom of the screen.
+  -  Immediately, after the function is created, you'll be taken to a confirmation page.  At the top right corner of this page, you'll see "ARN - {longstringofstuff}".  Copy the `longstringofstuff` part.
+-  Update Gruntfile.js with the ARN.
+  -  With the ARN you just copied, replace `replace-this-string-with-a-real-value` with the value you just copied and save the file.
+-  Update index.js with the proper region.
+  -  If your Lambda is not deployed in the `us-east-1` region, you'll need to update the value accordingly.  Save the file.
 
 ### Deploy
 
