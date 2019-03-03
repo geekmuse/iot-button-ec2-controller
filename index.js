@@ -1,7 +1,7 @@
 var AWS = require('aws-sdk');
+AWS.config.update({region: 'us-east-1'});
 var _ = require('underscore');
-var ec2 = new AWS.EC2({ apiVersion: '2016-09-15' });
-AWS.config.region = 'us-east-1';
+var ec2 = new AWS.EC2({ apiVersion: '2016-11-15' });
 
 exports.handler = (event, context, callback) => {
     console.log('Received event:', event);
@@ -26,16 +26,16 @@ exports.handler = (event, context, callback) => {
             return;
         }
 
-        if (data.Reservations.length) {
+        if (data.Reservations.length > 0) {
             for (r in data.Reservations) {
-                if (data.Reservations[r].Instances.length) {
+                if (data.Reservations[r].Instances.length > 0) {
                     for (i in data.Reservations[r].Instances) {
                         if (event.clickType === 'SINGLE') {
-                            if (!_.contains(['running', 'pending'], data.Reservations[r].Instances[i].State.Name)) {
+                            if (_.contains(['stopped'], data.Reservations[r].Instances[i].State.Name)) {
                                 instanceIds.push(data.Reservations[r].Instances[i].InstanceId);
                             }
                         } else if (event.clickType === 'DOUBLE') {
-                            if (!_.contains(['shutting-down', 'terminated', 'stopped', 'stopping'], data.Reservations[r].Instances[i].State.Name)) {
+                            if (_.contains(['running'], data.Reservations[r].Instances[i].State.Name)) {
                                 instanceIds.push(data.Reservations[r].Instances[i].InstanceId);
                             }
                         }
@@ -45,7 +45,7 @@ exports.handler = (event, context, callback) => {
         }
 
         i = '';
-        if (instanceIds.length) {
+        if (instanceIds.length > 0) {
             if (event.clickType === 'SINGLE') {
                 ec2.startInstances({ InstanceIds: instanceIds }, function(err, data) {
                     if (!err) {
